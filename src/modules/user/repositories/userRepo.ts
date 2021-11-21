@@ -32,7 +32,10 @@ class UserRepo extends Repository<UserEntitie> {
   }
 
   public async findById(id: string): Promise<UserEntitie | undefined> {
-    const user = await this.findOne(id);
+    const user = await this.findOne(
+      { id },
+      { select: ["id", "name", "email", "urlPiece"] }
+    );
 
     return user;
   }

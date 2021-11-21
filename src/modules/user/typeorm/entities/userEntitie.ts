@@ -1,9 +1,16 @@
-import { Entity, Column, PrimaryColumn, CreateDateColumn } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  CreateDateColumn,
+  OneToMany,
+} from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+import { SectionEntitie } from "../../../section/typeorm/entities/sectionEntitie";
 
 @Entity("tableUser")
 class UserEntitie {
-  @PrimaryColumn()
+  @PrimaryColumn("uuid")
   id: string;
 
   @Column()
@@ -17,6 +24,9 @@ class UserEntitie {
 
   @Column()
   password: string;
+
+  @OneToMany(() => SectionEntitie, (section) => section.user)
+  section: SectionEntitie[];
 
   @CreateDateColumn()
   created_at: Date;

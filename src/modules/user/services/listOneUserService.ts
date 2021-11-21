@@ -13,12 +13,7 @@ class ListOneUserService {
       throw new AppError("User already exists", 400);
     }
 
-    return {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      urlPiece: user.urlPiece,
-    };
+    return user;
   }
 }
 

@@ -4,11 +4,13 @@ import "express-async-errors";
 import { AppError } from "./error";
 import { connectDB } from "./typeorm/index";
 import { userRoute } from "./http/router/user.route";
+import { sectionRoute } from "./http/router/section.route";
 
 connectDB();
 const app = express();
 app.use(express.json());
 app.use("/api", userRoute);
+app.use("/api", sectionRoute);
 
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {
