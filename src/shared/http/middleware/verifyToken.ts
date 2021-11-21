@@ -1,0 +1,38 @@
+import { Request, Response, NextFunction } from "express";
+import { verify } from "jsonwebtoken";
+import getenv from "getenv";
+import { AppError } from "../../error";
+
+interface IDataToken {
+  sub: string;
+}
+
+const VerifyToken = (
+  request: Request,
+  response: Response,
+  next: NextFunction
+) => {
+  const tokenRequest = request.headers.authorization;
+
+  if (!tokenRequest) {
+    throw new AppError("Token is missing", 400);
+  }
+
+  const [, token] = tokenRequest.split(" ");
+
+  try {
+    const compare = verify(token, getenv("SECRET_KEY_TOKEN"));
+
+    const { sub } = compare as IDataToken;
+
+    request.user = {
+      id: sub,
+    };
+
+    return next();
+  } catch {
+    throw new AppError("Token invalid", 400);
+  }
+};
+
+export { VerifyToken };

@@ -30,6 +30,12 @@ class UserRepo extends Repository<UserEntitie> {
 
     return user;
   }
+
+  public async findById(id: string): Promise<UserEntitie | undefined> {
+    const user = await this.findOne(id);
+
+    return user;
+  }
 }
 
 export { UserRepo };
