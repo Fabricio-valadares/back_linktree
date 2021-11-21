@@ -4,9 +4,11 @@ import {
   PrimaryColumn,
   CreateDateColumn,
   ManyToOne,
+  OneToMany,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 import { UserEntitie } from "../../../user/typeorm/entities/userEntitie";
+import { CardEntitie } from "../../../card/typeorm/entities/cardEntitie";
 
 @Entity("tableSection")
 class SectionEntitie {
@@ -20,6 +22,9 @@ class SectionEntitie {
     onDelete: "CASCADE",
   })
   user: UserEntitie;
+
+  @OneToMany(() => CardEntitie, (card) => card.section)
+  card: CardEntitie[];
 
   @CreateDateColumn()
   created_at: Date;

@@ -19,6 +19,7 @@ class SectionRepo extends Repository<SectionEntitie> {
     const section = await this.find({
       where: { user: id },
       select: ["id", "title"],
+      relations: ["card"],
     });
 
     return section;
