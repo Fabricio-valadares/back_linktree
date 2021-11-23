@@ -15,6 +15,12 @@ class CardRepo extends Repository<CardEntitie> {
     return newCard;
   }
 
+  public async findByOneCard(id: string) {
+    const card = await this.findOne(id);
+
+    return card;
+  }
+
   public async findCardTotalSection(id: string) {
     const listCard = await this.find({
       where: { section: id },

@@ -8,4 +8,9 @@ interface IReturnCardCreate {
   title: string;
 }
 
-export { ICreateCard, IReturnCardCreate };
+interface IDataUpdate {
+  title: string;
+  id: string;
+}
+
+export { ICreateCard, IReturnCardCreate, IDataUpdate };
