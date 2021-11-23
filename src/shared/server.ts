@@ -7,10 +7,16 @@ import { userRoute } from "./http/router/user.route";
 import { sectionRoute } from "./http/router/section.route";
 import { cardRoute } from "./http/router/card.route";
 import { itensLinkRoute } from "./http/router/itensLink.route";
+import cors from "cors";
 
 connectDB();
 const app = express();
 app.use(express.json());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use("/api", userRoute);
 app.use("/api", sectionRoute);
 app.use("/api", cardRoute);
