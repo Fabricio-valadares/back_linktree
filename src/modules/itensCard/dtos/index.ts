@@ -8,4 +8,9 @@ interface IReturnItensLinkCreate {
   link: string;
 }
 
-export { ICreateItensLink, IReturnItensLinkCreate };
+interface IDataUpdate {
+  link: string;
+  id: string;
+}
+
+export { ICreateItensLink, IDataUpdate, IReturnItensLinkCreate };

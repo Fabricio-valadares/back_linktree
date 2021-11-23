@@ -15,6 +15,12 @@ class ItensLinkRepo extends Repository<ItensLinkEntitie> {
     return newItensLink;
   }
 
+  public async findByOneLink(id: string) {
+    const link = await this.findOne(id);
+
+    return link;
+  }
+
   public async deleteItensLinkCard(id: string): Promise<boolean> {
     const confirmationDelete = await this.delete(id);
 
