@@ -14,4 +14,14 @@ interface IReturnSectionListTotalUser {
   user: any;
 }
 
-export { ICreateSection, IReturnSectionCreate, IReturnSectionListTotalUser };
+interface IDataUpdate {
+  title: string;
+  id: string;
+}
+
+export {
+  ICreateSection,
+  IDataUpdate,
+  IReturnSectionCreate,
+  IReturnSectionListTotalUser,
+};

@@ -1,7 +1,5 @@
 import { getCustomRepository } from "typeorm";
 import { SectionRepo } from "../repositories/sectionRepo";
-import { IReturnSectionListTotalUser } from "../dtos";
-import { AppError } from "../../../shared/error";
 
 class SectionListTotalUserService {
   public async sectionListTotalUserService(id: string) {

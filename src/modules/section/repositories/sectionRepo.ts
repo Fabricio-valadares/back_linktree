@@ -25,6 +25,12 @@ class SectionRepo extends Repository<SectionEntitie> {
     return section;
   }
 
+  public async findByOneSection(id: string) {
+    const section = await this.findOne(id);
+
+    return section;
+  }
+
   public async deleteSection(id: string): Promise<boolean> {
     const confirmationDelete = await this.delete(id);
 
