@@ -16,7 +16,6 @@ class CardRepo extends Repository<CardEntitie> {
   }
 
   public async findCardTotalSection(id: string) {
-    console.log(">>>", id);
     const listCard = await this.find({
       where: { section: id },
       select: ["id", "title"],
@@ -24,6 +23,16 @@ class CardRepo extends Repository<CardEntitie> {
     });
 
     return listCard;
+  }
+
+  public async deleteCard(id: string): Promise<boolean> {
+    const confirmationDelete = await this.delete(id);
+
+    if (confirmationDelete.affected !== 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
