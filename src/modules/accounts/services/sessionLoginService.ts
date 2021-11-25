@@ -25,10 +25,14 @@ class SessionLoginServices {
       throw new AppError("Email or password not exists", 400);
     }
 
-    const token = sign({}, getenv("SECRET_KEY_TOKEN"), {
-      subject: user.id,
-      expiresIn: getenv("EXPIRES_TOKEN"),
-    });
+    const token = sign(
+      { urlpiece: user.urlPiece },
+      getenv("SECRET_KEY_TOKEN"),
+      {
+        subject: user.id,
+        expiresIn: getenv("EXPIRES_TOKEN"),
+      }
+    );
 
     return {
       token: token,

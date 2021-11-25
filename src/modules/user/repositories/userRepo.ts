@@ -35,7 +35,7 @@ class UserRepo extends Repository<UserEntitie> {
     const user = await this.find({
       where: { urlPiece: urlPiece },
       select: ["id", "name"],
-      relations: ["section", "section.card"],
+      relations: ["section", "section.card", "section.card.itensLink"],
     });
 
     return user;
