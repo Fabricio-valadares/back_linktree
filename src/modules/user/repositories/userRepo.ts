@@ -31,6 +31,16 @@ class UserRepo extends Repository<UserEntitie> {
     return user;
   }
 
+  public async findByUrlPiecePage(urlPiece: string) {
+    const user = await this.find({
+      where: { urlPiece: urlPiece },
+      select: ["id", "name"],
+      relations: ["section", "section.card"],
+    });
+
+    return user;
+  }
+
   public async findById(id: string): Promise<UserEntitie | undefined> {
     const user = await this.findOne(
       { id },
