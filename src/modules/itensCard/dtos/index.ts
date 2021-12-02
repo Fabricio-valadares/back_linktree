@@ -1,11 +1,13 @@
 interface ICreateItensLink {
   link: string;
+  title: string;
   card: any;
 }
 
 interface IReturnItensLinkCreate {
   id: string;
   link: string;
+  title: string;
 }
 
 interface IDataUpdate {

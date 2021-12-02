@@ -7,8 +7,9 @@ class ItensLinkRepo extends Repository<ItensLinkEntitie> {
   public async createItensLink({
     link,
     card,
+    title,
   }: ICreateItensLink): Promise<ItensLinkEntitie> {
-    const newItensLink = this.create({ link, card });
+    const newItensLink = this.create({ link, title, card });
 
     await this.save(newItensLink);
 

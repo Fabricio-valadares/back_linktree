@@ -14,6 +14,9 @@ class ItensLinkEntitie {
   id: string;
 
   @Column()
+  title: string;
+
+  @Column()
   link: string;
 
   @ManyToOne(() => CardEntitie, (card) => card.itensLink, {

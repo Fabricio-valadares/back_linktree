@@ -12,6 +12,10 @@ export class createTableItensLink1637513428247 implements MigrationInterface {
             isPrimary: true,
           },
           {
+            name: "title",
+            type: "varchar",
+          },
+          {
             name: "link",
             type: "varchar",
           },
