@@ -13,6 +13,7 @@ interface IReturnItensLinkCreate {
 interface IDataUpdate {
   link: string;
   id: string;
+  title: string;
 }
 
 export { ICreateItensLink, IDataUpdate, IReturnItensLinkCreate };

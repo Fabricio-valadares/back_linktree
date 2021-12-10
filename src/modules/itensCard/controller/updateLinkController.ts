@@ -6,7 +6,7 @@ class UpdateLinkController {
     request: Request,
     response: Response
   ): Promise<Response> {
-    const { link } = request.body;
+    const { link, title } = request.body;
     const { idLink } = request.params;
 
     const itensLinkService = new UpdateLinkService();
@@ -14,6 +14,7 @@ class UpdateLinkController {
     const updateItensLink = await itensLinkService.updateLinkService({
       id: idLink,
       link,
+      title,
     });
 
     return response.status(200).json(updateItensLink);
